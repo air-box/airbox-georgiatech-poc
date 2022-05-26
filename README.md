@@ -1,4 +1,4 @@
-# AirBox - Goergia Tech - Proof of Concept Repository
+# AirBox - Goergia Tech - Proof of Concept
 
 It includes software, code, steps and evaluations of AirBox solution at Georgia Tech using the incubator environment.
 
