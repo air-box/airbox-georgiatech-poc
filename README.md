@@ -1,19 +1,68 @@
-# AirBox - Goergia Tech - Proof of Concept
+# AirBox - Georgia Tech - Proof of Concept
 
 It includes software, code, steps and evaluations of AirBox solution at Georgia Tech using the incubator environment.
+This PoC demo requires 3 virtual machines: 
+1. Test app server instance
+2. AirBox KeyCentral server
+3. (optional) Loadbalancer VM instance
 
-## AirBox
-
-## Georgia Tech Incubator Environment
-
-## Deploying a model GT Enterprise app in GT Incubator Environment
-
-A GT enterprise app includes the following components:
+This is based on the model GT enterprise app architecture and provided by GT incubator environment which includes the following components:
 1. Load balancer (F5 Big IP)
 2. App server (Apache Tomcat)
 
 Both of these are connected through Georgia Tech network. Only loadbalancers have external IPs with App servers only accessible over internal IPs. 
 Typically, external TLS is terminated in load balancers. The communication between load balancer and app server is also over TLS.
+
+## Install AirBox
+
+* There are no code level changes in the app server or load balancer to use AirBox.
+
+* AirBox can be installed by following the steps below:
+    * Log in to the test app server virtual machine using ssh
+    * Clone this repo in your home directory
+    ````git clone TODO```
+    * Create AirBox directory
+    ```mkdir -p /opt/air-box```
+    * Copy AirBox KeyVisor binary and conf in to AirBox directory
+    ```
+    cp ~/airbox-georgiatech-poc/bin/keyvisor.so
+    cp ~/airbox-georgiatech-poc/bin/keyvisor.conf
+    ```
+* There are no workflow level changes in the app server or load balancer to use AirBox.
+    
+    * Normally, app server (tomcat) is run using the following command
+    ```$(CATALINA_HOME)/bin/startup.sh```
+    where $(CATALINA_HOME) is directory where tomcat server is installed, typically /opt/tomcat (see tomcat installation instructions below for details)
+    
+    * With AirBox, app server (tomcat) can be run in two ways:
+        1. Create / edit a setenv.sh in $(CATALINA_HOME) to include
+        ```
+        LD_PRELOAD=/opt/air-box/keyvisor.so
+        export LD_PRELOAD
+        ```
+        2. Using the following command
+        ```
+        $ cp ~/airbox-georgiatech-poc/bin/keyless $(CATALINA_HOME)/bin/
+        ./keyless startup.sh
+        ```
+## Run tomcat app server with AirBox 
+
+* You can use the following steps to run with AirBox
+    * Log in to the test app server virtual machine using ssh
+    * Clone this repo in your home directory
+    ````git clone TODO```
+    * Run keycentral server
+    ```
+    $ cd airbox-georgiatech-poc/keycentral
+    $ ./keycentral
+    ```
+
+* To test, you can use the following methods: 
+    1. Command line
+        ``` curl -kv https://10.128.128.213:8443/examples/servlets/helloworld.html```
+    2. Web browser
+        To use browser, you will need to add the self-signed certificates this demo uses to the browser
+        Details on how to do it - TBD
 
 ### Deploying App server (Apache Tomcat)
 * Setup Apache Tomcat Server
