@@ -64,7 +64,7 @@ Typically, external TLS is terminated in load balancers. The communication betwe
         To use browser, you will need to add the self-signed certificates this demo uses to the browser
         Details on how to do it - TBD
 
-### Deploying App server (Apache Tomcat)
+### Deploying Apache Tomcat Server
 * Setup Apache Tomcat Server
 
   * Install Open-jdk-11
