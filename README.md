@@ -127,7 +127,7 @@ Typically, external TLS is terminated in load balancers. The communication betwe
   <Connector
     	protocol="org.apache.coyote.http11.Http11AprProtocol"
     	port="8443"
-    	maxThreads="150"
+    	maxThreads="1"
     	SSLEnabled="true" >
  	<SSLHostConfig>
     		<Certificate
