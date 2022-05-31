@@ -25,8 +25,8 @@ Typically, external TLS is terminated in load balancers. The communication betwe
     ```mkdir -p /opt/air-box```
     * Copy AirBox KeyVisor binary and conf in to AirBox directory
     ```
-    cp ~/airbox-georgiatech-poc/bin/keyvisor.so
-    cp ~/airbox-georgiatech-poc/bin/keyvisor.conf
+    cp ~/airbox-georgiatech-poc/kvbin/keyvisor.so
+    cp ~/airbox-georgiatech-poc/kvbin/keyvisor.conf
     ```
 * There are no workflow level changes in the app server or load balancer to use AirBox.
     
@@ -42,7 +42,7 @@ Typically, external TLS is terminated in load balancers. The communication betwe
         ```
         2. Using the following command
         ```
-        $ cp ~/airbox-georgiatech-poc/bin/keyless $(CATALINA_HOME)/bin/
+        $ cp ~/airbox-georgiatech-poc/kvbin/keyless $(CATALINA_HOME)/bin/
         ./keyless startup.sh
         ```
 ## Run tomcat app server with AirBox 
@@ -53,7 +53,7 @@ Typically, external TLS is terminated in load balancers. The communication betwe
     ````git clone TODO```
     * Run keycentral server
     ```
-    $ cd airbox-georgiatech-poc/keycentral
+    $ cd airbox-georgiatech-poc/kcbin
     $ ./keycentral
     ```
 
