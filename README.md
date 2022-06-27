@@ -25,8 +25,8 @@ Typically, external TLS is terminated in load balancers. The communication betwe
     ```mkdir -p /opt/air-box```
     * Copy AirBox KeyVisor binary and conf in to AirBox directory
     ```
-    cp ~/airbox-georgiatech-poc/kvbin/keyvisor.so
-    cp ~/airbox-georgiatech-poc/kvbin/keyvisor.conf
+    cp ~/airbox-georgiatech-poc/kvbin/keyvisor.so /opt/air-box/
+    cp ~/airbox-georgiatech-poc/kvbin/keyvisor.conf /opt/air-box/
     ```
 * There are no workflow level changes in the app server or load balancer to use AirBox.
     
