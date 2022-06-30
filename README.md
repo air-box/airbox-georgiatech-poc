@@ -28,7 +28,7 @@ Typically, external TLS is terminated in load balancers. The communication betwe
     cp ~/airbox-georgiatech-poc/kvbin/keyvisor.so /opt/air-box/
     cp ~/airbox-georgiatech-poc/kvbin/keyvisor.conf /opt/air-box/
     ```
-* There are no workflow level changes in the app server or load balancer to use AirBox.
+* There are no workflow level changes to use AirBox.
     
     * Normally, app server (tomcat) is run using the following command
     ```$(CATALINA_HOME)/bin/startup.sh```
@@ -45,6 +45,8 @@ Typically, external TLS is terminated in load balancers. The communication betwe
         $ cp ~/airbox-georgiatech-poc/kvbin/keyless $(CATALINA_HOME)/bin/
         ./keyless startup.sh
         ```
+     * For closed systems such as load balancers, one has the option to install AirBox Key Gateway. Please refer kgbin directory in this repo for details.
+     
 ## Run tomcat app server with AirBox 
 
 * You can use the following steps to run with AirBox
